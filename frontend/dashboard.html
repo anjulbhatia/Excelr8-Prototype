@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - AI Survey Data Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold tracking-tight">Survey Data Dashboard</h1>
+      <nav class="space-x-6 text-sm">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="dashboard.html" class="text-blue-600 font-semibold">Dashboard</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Reports</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard -->
+  <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-12 gap-6">
+    
+    <!-- Sidebar -->
+    <aside class="col-span-3 bg-white shadow rounded-xl p-5 space-y-4">
+      <h2 class="font-semibold text-gray-700 mb-2">Dashboard Modules</h2>
+      <ul class="space-y-2 text-sm">
+        <li><button class="w-full text-left px-3 py-2 rounded-lg bg-gray-100 hover:bg-blue-100">Overview</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-100">Missing Data</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-100">Outliers</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-100">Weighted Estimates</button></li>
+      </ul>
+    </aside>
+
+    <!-- Charts -->
+    <section class="col-span-9 space-y-6">
+
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Data Quality Overview</h2>
+        <canvas id="missingDataChart"></canvas>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Weighted Estimates Distribution</h2>
+        <canvas id="estimateChart"></canvas>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t text-sm text-gray-500 mt-8 py-4 text-center">
+    © 2025 Statistical Data Utility Prototype | Dashboard Mockup
+  </footer>
+
+  <!-- Charts Script -->
+  <script>
+    const ctx1 = document.getElementById('missingDataChart');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Age', 'Income', 'Education', 'Region'],
+        datasets: [{
+          label: '% Missing Values',
+          data: [5, 12, 7, 3],
+          backgroundColor: 'rgba(37, 99, 235, 0.7)'
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    const ctx2 = document.getElementById('estimateChart');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022'],
+        datasets: [{
+          label: 'Weighted Estimates',
+          data: [50, 55, 52, 60, 65],
+          borderColor: 'rgba(16, 185, 129, 0.8)',
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: { responsive: true }
+    });
+  </script>
+</body>
+</html>
