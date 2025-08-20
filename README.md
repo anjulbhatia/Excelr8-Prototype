@@ -1,4 +1,10 @@
 # Excelr8 – AI Survey Data Processing Portal
+
+<img width="941" height="437" alt="index" src="https://github.com/user-attachments/assets/03d1b679-6b5e-49c4-8b4a-854388ce9fda" />
+
+<img width="941" height="429" alt="dashboard" src="https://github.com/user-attachments/assets/6722ff35-70fc-48af-9e0c-ef48e967ac11" />
+
+
 ## Overview
 
 Excelr8 is a prototype developed for Statathon 2025.
